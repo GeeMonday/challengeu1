@@ -1,12 +1,13 @@
 require 'net/http'
 require 'json'
 require 'pp'
-
+ 
 url = 'https://dog.ceo/api/breeds/list/all'
 uri = URI(url)
 response = Net::HTTP.get(uri)
 dog_breeds = JSON.parse(response) # Convert JSON data into Ruby data.
-
+#pp dog_breeds # pp stands for pretty print.
+ 
 # Replace the pretty print with a custom nested loop to print breeds and sub-breeds
 dog_breeds['message'].each do |breed, sub_breeds|
   if sub_breeds.empty?
